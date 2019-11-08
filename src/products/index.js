@@ -3,7 +3,7 @@ import {
   Card, CardText, CardBody,
   CardTitle, Button
 } from 'reactstrap';
-import './App.scss'
+import './index.scss'
 
 const Product = () => (
   <Card className='product'>
