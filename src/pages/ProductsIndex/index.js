@@ -17,7 +17,7 @@ const ProductList = () => {
     }).then(response => {
       const { data } = response
       setProducts(data.products)
-    }).catch(error => {
+    }).catch(() => {
       alert('讀取商品失敗')
     })
   }

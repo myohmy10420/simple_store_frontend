@@ -1,15 +1,15 @@
-import ProductsList from './pages/ProductsList'
+import ProductsIndex from './pages/ProductsIndex'
 import ProductShow from './pages/ProductShow'
 import ProductNew from './pages/ProductNew'
 
 const routes = [
   {
     path: "/",
-    component: ProductsList
+    component: ProductsIndex
   },
   {
     path: "/products",
-    component: ProductsList,
+    component: ProductsIndex,
   },
   {
     path: "/product/:id",
