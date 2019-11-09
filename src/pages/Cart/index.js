@@ -1,9 +1,24 @@
-import React from 'react'
-import { Table, Button } from 'reactstrap'
+import React, { useState } from 'react'
+import { Table, Button, NavLink } from 'reactstrap'
+
+import LineItem from './component/LineItem'
 
 import './index.scss'
 
-const Cart = (props) => {
+const Cart = () => {
+  const [haveAsyncData, setHaveAsyncData] = useState(false)
+  const [cartItems, setCartItems] = useState([])
+
+  if (!haveAsyncData) {
+    setCartItems(JSON.parse(localStorage.getItem('simpleCart')) || [])
+    setHaveAsyncData(true)
+  }
+
+  const cleanCart = (e) => {
+    e.preventDefault()
+    localStorage.removeItem('simpleCart')
+    setCartItems([])
+  }
   return (
     <div className="cart">
       <Table>
@@ -11,23 +26,27 @@ const Cart = (props) => {
           <tr>
             <th>#</th>
             <th>商品名稱</th>
+            <th>購買數量</th>
             <th>商品價格</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>10050</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>10000</td>
-          </tr>
+          {
+            cartItems.map((item, index) => (
+              <LineItem item={item} index={index+1} key={index} />
+            ))
+          }
         </tbody>
       </Table>
-      <Button>填寫訂單</Button>
+      <NavLink href="#">
+        <Button>填寫訂單</Button>
+      </NavLink>
+      <NavLink href="#" onClick={cleanCart}>
+        <Button>清空購物車</Button>
+      </NavLink>
+      <NavLink href="/products">
+        <Button>返回商品列表</Button>
+      </NavLink>
     </div>
   )
 }

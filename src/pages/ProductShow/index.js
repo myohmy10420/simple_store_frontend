@@ -6,8 +6,8 @@ import {
 
 import './index.scss'
 
-const ProductShow = (props) => {
-  const product_id = props.match.params.id
+const ProductShow = ({ history, match }) => {
+  const product_id = match.params.id
   const [haveAsyncData, setHaveAsyncData] = useState(false)
   const [product, setProduct] = useState({})
 
@@ -23,6 +23,23 @@ const ProductShow = (props) => {
       alert('讀取商品失敗')
     })
   }
+
+  const addToCart = e => {
+    e.preventDefault()
+    let oldCart = JSON.parse(localStorage.getItem('simpleCart')) || []
+
+    let hasSameItem = !!oldCart.find((item) => (
+      item.id === product.id
+    ))
+
+    if (!hasSameItem) {
+      let newProduct = {amount: 1, ...product}
+      let newCart = oldCart.concat(newProduct)
+      localStorage.setItem('simpleCart', JSON.stringify(newCart))
+    }
+
+    history.push('/cart')
+  }
   return (
     <div className='product_show'>
       <Card>
@@ -36,13 +53,13 @@ const ProductShow = (props) => {
           <CardLink href="/products">
             <Button>回商品列表</Button>
           </CardLink>
-          <CardLink href="#">
+          <CardLink href="#" onClick={addToCart}>
             <Button>加入購物車</Button>
           </CardLink>
         </CardBody>
       </Card>
     </div>
-  );
+  )
 }
 
 export default ProductShow
