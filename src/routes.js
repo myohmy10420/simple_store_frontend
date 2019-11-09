@@ -1,5 +1,6 @@
 import ProductsList from './pages/ProductsList'
 import ProductDetail from './pages/ProductDetail'
+import ProductCreate from './pages/ProductCreate'
 
 const routes = [
   {
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/product_detail",
     component: ProductDetail,
+  },
+  {
+    path: "/product/create",
+    component: ProductCreate,
   }
 ]
 

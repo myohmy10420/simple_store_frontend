@@ -17,7 +17,7 @@ const NavBar = () => {
             <NavLink href="/products">商品列表</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">新增商品</NavLink>
+            <NavLink href="/product/create">新增商品</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="#">購物車</NavLink>
