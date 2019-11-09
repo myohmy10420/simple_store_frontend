@@ -24,22 +24,24 @@ const ProductShow = (props) => {
     })
   }
   return (
-    <Card className='product'>
-      <CardBody>
-        <CardTitle>商品: {product.name}</CardTitle>
-        <CardText>
-          <span>{product.content}</span><br/><br/>
-          <span>價格: {product.price}</span><br/>
-          <span>剩餘數量: {product.inventory}</span>
-        </CardText>
-        <CardLink href="/products">
-          <Button>回商品列表</Button>
-        </CardLink>
-        <CardLink href="#">
-          <Button>加入購物車</Button>
-        </CardLink>
-      </CardBody>
-    </Card>
+    <div className='product_show'>
+      <Card>
+        <CardBody>
+          <CardTitle>商品: {product.name}</CardTitle>
+          <CardText>
+            <span>{product.content}</span><br/><br/>
+            <span>價格: {product.price}</span><br/>
+            <span>剩餘數量: {product.inventory}</span>
+          </CardText>
+          <CardLink href="/products">
+            <Button>回商品列表</Button>
+          </CardLink>
+          <CardLink href="#">
+            <Button>加入購物車</Button>
+          </CardLink>
+        </CardBody>
+      </Card>
+    </div>
   );
 }
 

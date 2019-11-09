@@ -6,7 +6,7 @@ import {
 const Product = (props) => {
   const {id, name, price} = props.item
   return (
-    <Card className='product'>
+    <Card>
       <CardBody>
         <CardTitle>商品: {name}</CardTitle>
         <CardText>

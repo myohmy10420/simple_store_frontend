@@ -23,7 +23,7 @@ const ProductList = () => {
   }
 
   return (
-    <div>
+    <div className='product_index'>
       {
         products.map((item, index) => (
           <Product item={item} key={index} />
