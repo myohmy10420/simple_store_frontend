@@ -12,12 +12,12 @@ const routes = [
     component: ProductsIndex,
   },
   {
-    path: "/product/:id",
-    component: ProductShow,
-  },
-  {
     path: "/product/new",
     component: ProductNew,
+  },
+  {
+    path: "/product/:id",
+    component: ProductShow,
   }
 ]
 
