@@ -1,5 +1,5 @@
-import ProductsList from './ProductsList'
-import ProductDetail from './ProductDetail'
+import ProductsList from './pages/ProductsList'
+import ProductDetail from './pages/ProductDetail'
 
 const routes = [
   {
