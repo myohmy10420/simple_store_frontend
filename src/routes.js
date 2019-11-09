@@ -1,13 +1,18 @@
-import ProductIndex from './products/index'
+import ProductsList from './ProductsList'
+import ProductDetail from './ProductDetail'
 
 const routes = [
   {
     path: "/",
-    component: ProductIndex
+    component: ProductsList
   },
   {
     path: "/products",
-    component: ProductIndex,
+    component: ProductsList,
+  },
+  {
+    path: "/product_detail",
+    component: ProductDetail,
   }
 ]
 
