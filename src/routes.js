@@ -1,6 +1,7 @@
 import ProductsIndex from './pages/ProductsIndex'
 import ProductShow from './pages/ProductShow'
 import ProductNew from './pages/ProductNew'
+import Cart from './pages/Cart'
 
 const routes = [
   {
@@ -18,6 +19,10 @@ const routes = [
   {
     path: "/product/:id",
     component: ProductShow,
+  },
+  {
+    path: "/cart",
+    component: Cart,
   }
 ]
 

@@ -20,7 +20,7 @@ const NavBar = () => {
             <NavLink href="/product/new">新增商品</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">購物車</NavLink>
+            <NavLink href="/cart">購物車</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
