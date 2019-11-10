@@ -38,7 +38,7 @@ const Cart = () => {
           }
         </tbody>
       </Table>
-      <NavLink href="#">
+      <NavLink href="/order/new">
         <Button>填寫訂單</Button>
       </NavLink>
       <NavLink href="#" onClick={cleanCart}>
