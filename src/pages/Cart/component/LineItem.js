@@ -7,7 +7,7 @@ const LineItem = ({item, index}) => {
 
   const updateLineItemAmount = e => {
     let productId = parseInt(e.target.dataset.product_id)
-    let selectdAmount = e.target.value
+    let selectdAmount = parseInt(e.target.value)
     setCurrentAmount(selectdAmount)
 
     let oldCart = JSON.parse(localStorage.getItem('simpleCart'))
