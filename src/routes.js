@@ -3,6 +3,7 @@ import ProductShow from './pages/ProductShow'
 import ProductNew from './pages/ProductNew'
 import Cart from './pages/Cart'
 import OrderNew from './pages/OrderNew'
+import OrderConfirm from './pages/OrderConfirm'
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
   {
     path: "/order/new",
     component: OrderNew,
+  },
+  {
+    path: "/order/confirm",
+    component: OrderConfirm,
   }
 ]
 
