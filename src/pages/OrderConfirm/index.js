@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Card, CardBody, CardTitle, CardText, CardLink, Button } from 'reactstrap'
+import axios from 'axios'
 
 import CartList from './component/CartList'
 
@@ -7,13 +8,16 @@ import './index.scss'
 
 const OrderConfirm = ({ history }) => {
   const [haveAsyncData, setHaveAsyncData] = useState(false)
+  const [cartItems, setCartItems] = useState([])
   const [inputForm, setInputForm] = useState({})
 
   if (!haveAsyncData) {
-    setInputForm(JSON.parse(localStorage.getItem('simpleOrder')))
+    let inputForm = JSON.parse(localStorage.getItem('simpleOrder'))
+    setInputForm(inputForm)
+    setCartItems(inputForm.cart_items)
     setHaveAsyncData(true)
   } else {
-    if (inputForm.cartItems.length === 0) {
+    if (cartItems.length === 0) {
       alert('尚未選購商品')
       history.push('/')
     }
@@ -25,12 +29,22 @@ const OrderConfirm = ({ history }) => {
 
   const submitForm = e => {
     e.preventDefault()
-    console.log('submitForm')
+    axios({
+      url: `${process.env.REACT_APP_API}/api/v1/orders`,
+      method: 'POST',
+      data: inputForm
+    }).then(() => {
+      alert('購買成功')
+      history.push('/order/result')
+    }).catch(error => {
+      const errors = error.response.data.errors
+      alert(errors.join('\n'))
+    })
   }
 
   return (
     <div className='order_confirm'>
-      <CartList cartItems={inputForm.cartItems} />
+      <CartList cartItems={cartItems} />
       <Card>
         <CardBody>
           <CardTitle>購買資訊</CardTitle>
@@ -42,7 +56,7 @@ const OrderConfirm = ({ history }) => {
             電話: {inputForm.phone}
           </CardText>
           <CardText>
-            總金額: {inputForm.totalPrice}
+            總金額: {inputForm.total_price}
           </CardText>
         </CardBody>
       </Card>

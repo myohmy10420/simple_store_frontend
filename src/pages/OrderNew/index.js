@@ -51,8 +51,8 @@ const OrderNew = ({ history }) => {
   }
 
   const goOrderConfirm = () => {
-    inputForm.cartItems = cartItems
-    inputForm.totalPrice = calculatePrice(inputForm.cartItems)
+    inputForm.cart_items = cartItems
+    inputForm.total_price = calculatePrice(inputForm.cart_items)
     localStorage.setItem('simpleOrder', JSON.stringify(inputForm))
     history.push('/order/confirm')
   }
