@@ -4,6 +4,7 @@ import ProductNew from './pages/ProductNew'
 import Cart from './pages/Cart'
 import OrderNew from './pages/OrderNew'
 import OrderConfirm from './pages/OrderConfirm'
+import OrderResult from './pages/OrderResult'
 
 const routes = [
   {
@@ -33,6 +34,10 @@ const routes = [
   {
     path: "/order/confirm",
     component: OrderConfirm,
+  },
+  {
+    path: "/order/result",
+    component: OrderResult,
   }
 ]
 

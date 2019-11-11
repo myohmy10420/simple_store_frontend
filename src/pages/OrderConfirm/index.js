@@ -11,8 +11,8 @@ const OrderConfirm = ({ history }) => {
   const [cartItems, setCartItems] = useState([])
   const [inputForm, setInputForm] = useState({})
 
-  if (!haveAsyncData) {
-    let inputForm = JSON.parse(localStorage.getItem('simpleOrder'))
+  let inputDatas = JSON.parse(localStorage.getItem('simpleOrder'))
+  if (!haveAsyncData && inputDatas) {
     setInputForm(inputForm)
     setCartItems(inputForm.cart_items)
     setHaveAsyncData(true)
@@ -20,8 +20,7 @@ const OrderConfirm = ({ history }) => {
     if (cartItems.length === 0) {
       alert('尚未選購商品')
       history.push('/')
-    }
-    if (!inputForm.name || !inputForm.phone) {
+    } else if (!inputForm.name || !inputForm.phone) {
       alert('資料未填寫完整')
       history.push('/order/new')
     }
