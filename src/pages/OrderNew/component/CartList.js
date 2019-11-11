@@ -15,7 +15,7 @@ const CartList = ({cartItems}) => (
       {
         cartItems.map((item, index) => (
           <tr key={index}>
-            <th scope="row">{index}</th>
+            <th scope="row">{index + 1}</th>
             <td>{item.name}</td>
             <td>{item.amount}</td>
             <td>{item.price}</td>

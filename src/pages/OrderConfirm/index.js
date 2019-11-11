@@ -13,8 +13,8 @@ const OrderConfirm = ({ history }) => {
 
   let inputDatas = JSON.parse(localStorage.getItem('simpleOrder'))
   if (!haveAsyncData && inputDatas) {
-    setInputForm(inputForm)
-    setCartItems(inputForm.cart_items)
+    setInputForm(inputDatas)
+    setCartItems(inputDatas.cart_items)
     setHaveAsyncData(true)
   } else {
     if (cartItems.length === 0) {
