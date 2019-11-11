@@ -5,6 +5,7 @@ import Cart from './pages/Cart'
 import OrderNew from './pages/OrderNew'
 import OrderConfirm from './pages/OrderConfirm'
 import OrderResult from './pages/OrderResult'
+import Contact from './pages/Contact'
 
 const routes = [
   {
@@ -38,6 +39,10 @@ const routes = [
   {
     path: "/order/result",
     component: OrderResult,
+  },
+  {
+    path: "/contact",
+    component: Contact,
   }
 ]
 
