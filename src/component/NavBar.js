@@ -22,6 +22,9 @@ const NavBar = () => {
           <NavItem>
             <NavLink href="/cart">購物車</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink href="/contact">聯繫我們</NavLink>
+          </NavItem>
         </Nav>
       </Navbar>
     </div>
