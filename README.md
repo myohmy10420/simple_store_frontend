@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+專案使用[Create React App](https://github.com/facebook/create-react-app)建立
 
-## Available Scripts
+## 參考環境
 
-In the project directory, you can run:
+node v10.16.0
 
-### `yarn start`
+yarn 1.10.1
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 使用說明
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+clone專案下來之後
 
-### `yarn test`
+`$ yarn install`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`$ yarn start`
 
-### `yarn build`
+即可開啟首頁, 需要搭配[simple_store_backend](https://github.com/myohmy10420/simple_store_backend)，並且後端需要安裝 puma 使用 simple_store_api.test 網址開啟 server
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 自動部署
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+自動部署指令
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`$ ./deploy.sh production`
 
-### `yarn eject`
+#### 模擬部署
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`$ ./deploy.sh development`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+專案裡有`deploy_test`代表模擬機台，每次模擬部署都會 link build_version裡最新的版本，可以進入到deploy_test底下執行
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`$ node server.js`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+開啟該模擬機台的 server
 
-## Learn More
+## 內容說明
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+新增商品 > 點選商品 > 加入購物車 > 選擇數量 > 填寫資料 > 確認訂單 > 訂單成立(此時跳出寄信模擬視窗)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+可以在首頁或者訂單成立頁面點選聯繫我們留下訊息
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+目前驗證都在後端做並傳到前端顯示 alert
